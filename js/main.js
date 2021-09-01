@@ -1,10 +1,9 @@
-// If you don't want the particles, change the following to false
+
 const doParticles = true;
 
 
 
 
-// Do not mess with the rest of this file unless you know what you're doing
 
 const getWidth = () => { // credit to travis on stack overflow
     return Math.max(
@@ -29,7 +28,7 @@ if (doParticles) {
     });
 }
 
-// This is for the click to copy
+
 let t;
 $(document).ready(() => {
     t = $(".ip").html();
@@ -53,14 +52,14 @@ $(document).on("click", ".ip", () => {
     }, 800);
 });
 
-// This is to fetch the player count
+
 $(document).ready(() => {
     let ip = $(".sip").attr("data-ip");
     let port = $(".sip").attr("data-port");
     if (port == "" || port == null) port = "25565";
     if (ip == "" || ip == null) return console.error("Error fetching player count - is the IP set correctly in the HTML?");
     updatePlayercount(ip, port);
-    // Updates every minute (not worth changing due to API cache)
+   
     setInterval(() => {
         updatePlayercount(ip, port);
     }, 60000);
@@ -71,7 +70,7 @@ const updatePlayercount = (ip, port) => {
         if (result.hasOwnProperty('online')) {
             $(".sip").html(result.online);
         } else {
-            $(".playercount").html("Server isn't online!");
+            $(".playercount").html("Server isn't online idiot");
         }
     });
 };
